@@ -40,7 +40,7 @@ class Node implements Serializable {
         }
         
         // Use the validated option
-        this.script.sh "npm version ${option}"
+        this.script.sh "npm version ${option} --no-git-tag-version --no-commit-hooks"
     }
 
     def getCurVersionNumber() {
