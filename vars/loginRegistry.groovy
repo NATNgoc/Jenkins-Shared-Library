@@ -2,6 +2,6 @@
 
 import ngoc.Docker
 
-def call(String idCrendential) {
-    return new Docker(this).dockerLogin(idCrendential)
+def call(String idCrendential, String host='') {
+    return new Docker(this).dockerLogin(idCrendential, host)
 }
