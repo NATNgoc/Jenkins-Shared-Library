@@ -44,7 +44,6 @@ class Node implements Serializable {
     }
 
     def getCurVersionNumber() {
-       return this.script.sh ("npm pkg get version", returnStdout: true).trim()
+        return this.script.sh(script: "npm pkg get version", returnStdout: true).trim().replaceAll('"', '')
     }
-
 }
