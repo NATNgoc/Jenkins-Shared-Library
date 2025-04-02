@@ -33,4 +33,18 @@ class Node implements Serializable {
         this.script.sh "npm run build"
     }
 
+    def versioning(String option) {
+        // Validate option is one of the allowed values
+        if (!["patch", "major", "minor"].contains(option)) {
+            throw new IllegalArgumentException("Invalid version option: '${option}'. Must be one of: patch, major, minor")
+        }
+        
+        // Use the validated option
+        this.script.sh "npm version ${option}"
+    }
+
+    def getCurVersionNumber() {
+        this.script.sh "npm pkg get version"
+    }
+
 }
