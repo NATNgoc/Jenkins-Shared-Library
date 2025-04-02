@@ -20,6 +20,11 @@ class Node implements Serializable {
      * @param body Closure to execute
      * @return Result of the closure execution
      */
+
+    def installLibary() {
+        this.script.sh "npm i --save"
+    }
+
     def testing() {
         this.script.sh "npm run test"
     }
